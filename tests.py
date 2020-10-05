@@ -14,8 +14,11 @@ def test_add():
     assert (['a', 'b'] in list(st.data.keys())) == False, "Added invalid key"
 
 def test_remove():
-    pass
-
+    st = Storage({'a': 1, 'b': 2})
+    st.remove('a')
+    val = st.get('a')
+    assert val is None, "Value for the key {} wasn't removed".format('a')
+    
 def test_set():
     st = Storage({'a': 1, 'b': 2})
     key = 'b'
