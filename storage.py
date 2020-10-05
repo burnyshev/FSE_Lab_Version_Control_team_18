@@ -18,5 +18,12 @@ class Storage:
     def set(self):
         pass
     
-    def add(self):
-        pass
+    def add(self, key, value):
+        try:
+            hash(key)
+            if not self.get(key):
+                self.data[key] = value
+            else:
+                KeyError(f"Key '{key}' already exists")
+        except :
+            TypeError(f"{type(key)} is not hashable")
